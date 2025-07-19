@@ -8,7 +8,22 @@
 import Foundation
 import CoreText
 
-internal extension RegisteredFontFamily {
+package extension RegisteredFontFamily {
+    
+    var familyNameCFString: CFString {
+        return self.familyName as CFString
+    }
+    
+    var familyNameNSString: NSString {
+        return self.familyName as NSString
+    }
+    
+    var familyName: String {
+        guard let filename = filesURLs.first else {
+            fatalError("no font family")
+        }
+        return registeredFontFamilyName(named: filename.lastPathComponent.replacingOccurrences(of: fontExtension.dottetExtensionSuffix, with: ""))
+    }
     
     func registeredFontFamilyName(named name: String) -> String {
         return CTFontCopyFamilyName(CTFont(name as CFString, size: 17)) as String

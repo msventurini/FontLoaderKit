@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal protocol RegisteredFontFamily {
+package protocol RegisteredFontFamily: Sendable {
     var familyName: String { get }
     var familyNameNSString: NSString { get }
     var familyNameCFString: CFString { get }

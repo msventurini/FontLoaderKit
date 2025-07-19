@@ -9,13 +9,23 @@ let package = Package(
     products: [
         .library(
             name: "FontLoaderKit",
-            type: .dynamic,
+            type: .static,
             targets: ["FontLoaderKit"]
         ),
+        .library(
+            name: "FontRegisterTools",
+            type: .static,
+            targets: ["FontRegisterTools"]
+        ),
+        
     ],
     targets: [
         .target(
-            name: "FontLoaderKit"
+            name: "FontLoaderKit",
+            dependencies: ["FontRegisterTools"]
+        ),
+        .target(
+            name: "FontRegisterTools"
         ),
         .testTarget(
             name: "FontLoaderKitTests",

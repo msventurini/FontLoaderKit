@@ -7,6 +7,9 @@
 
 import Foundation
 import SwiftUI
+import FontRegisterTools
+
+
 
 public struct CustomFont : Sendable {
     
@@ -17,13 +20,13 @@ public struct CustomFont : Sendable {
     }
     
     public func withAttributes(weight: Font.Weight = .regular, sized size: CGFloat? = nil, relativeTo style: Font.TextStyle = .body) -> Font {
-        let currentSize: CGFloat = size ?? UIFont.preferredFont(forTextStyle: style.getUIFontTextStyle()).pointSize
+        let currentSize: CGFloat = size ?? NativeFont.preferredFont(forTextStyle: style.getUIFontTextStyle()).pointSize
         return Font.custom(fontRegister.familyName, size: currentSize, relativeTo: style)
             .weight(weight)
     }
     
     public func withStyle(style: Font.TextStyle = .body) -> Font {
-        let currentSize: CGFloat = UIFont.preferredFont(forTextStyle: style.getUIFontTextStyle()).pointSize
+        let currentSize: CGFloat = NativeFont.preferredFont(forTextStyle: style.getUIFontTextStyle()).pointSize
         return Font.custom(fontRegister.familyName, size: currentSize, relativeTo: style)
     }
 }

@@ -6,34 +6,41 @@
 //
 
 import SwiftUI
+#if os(iOS)
+typealias NativeFont = UIFont
+#elseif os(macOS)
+typealias NativeFont = NSFont
+#endif
+
 
 internal extension Font.TextStyle {
-    func getUIFontTextStyle() -> UIFont.TextStyle {
+    
+    func getUIFontTextStyle() -> NativeFont.TextStyle {
         switch self {
         case .largeTitle:
-            UIFont.TextStyle.largeTitle
+            NativeFont.TextStyle.largeTitle
         case .title:
-            UIFont.TextStyle.title1
+            NativeFont.TextStyle.title1
         case .title2:
-            UIFont.TextStyle.title2
+            NativeFont.TextStyle.title2
         case .title3:
-            UIFont.TextStyle.title3
+            NativeFont.TextStyle.title3
         case .headline:
-            UIFont.TextStyle.headline
+            NativeFont.TextStyle.headline
         case .subheadline:
-            UIFont.TextStyle.subheadline
+            NativeFont.TextStyle.subheadline
         case .body:
-            UIFont.TextStyle.body
+            NativeFont.TextStyle.body
         case .callout:
-            UIFont.TextStyle.callout
+            NativeFont.TextStyle.callout
         case .footnote:
-            UIFont.TextStyle.footnote
+            NativeFont.TextStyle.footnote
         case .caption:
-            UIFont.TextStyle.caption1
+            NativeFont.TextStyle.caption1
         case .caption2:
-            UIFont.TextStyle.caption2
+            NativeFont.TextStyle.caption2
         @unknown default:
-            UIFont.TextStyle.body
+            NativeFont.TextStyle.body
         }
     }
 }
