@@ -9,12 +9,12 @@ let package = Package(
     products: [
         .library(
             name: "FontLoaderKit",
-            type: .static,
+            type: .dynamic,
             targets: ["FontLoaderKit"]
         ),
         .library(
             name: "FontRegisterTools",
-            type: .static,
+            type: .dynamic,
             targets: ["FontRegisterTools"]
         ),
         
